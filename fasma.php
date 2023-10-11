@@ -2,9 +2,7 @@
 
 header('content-Type: application/json');
 
-define("CHAVE", "32y3103LLY36I2oxzZ4C6xDLcswc2lrQl8KqF1bCCd8TV0flVewHjqsc1J1e180709");
-define("MEU_SITE", "http://zendpdf.test");
-
+define("CHAVE", "");
 
 function validarRecibo($recibo, $diretorioDestino = "fasmapay/")
 {
@@ -36,7 +34,7 @@ function validarRecibo($recibo, $diretorioDestino = "fasmapay/")
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, array(
-                'url' => MEU_SITE,
+                'url' => $_SERVER['HTTP_ORIGIN'],
                 'sudopay_file' => new CURLFile($caminhoDestino)
             ));
 
